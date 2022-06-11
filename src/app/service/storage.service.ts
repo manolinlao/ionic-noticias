@@ -11,6 +11,7 @@ export class StorageService {
   private _localArticles: Article[] = [];
 
   constructor(private storage: Storage) {
+    console.log('storage.service');
     this.init();
   }
 

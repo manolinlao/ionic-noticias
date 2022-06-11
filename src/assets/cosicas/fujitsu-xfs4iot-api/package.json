@@ -1,0 +1,40 @@
+{
+  "name": "fujitsu-xfs4iot-api",
+  "version": "0.0.2",
+  "description": "Library to modelize objects and interfaces of Xfs4Iot",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "http://10.142.76.119:7003/content/repositories/private-npm/"
+  },
+  "scripts": {
+    "start": "rimraf dist && tsc",
+    "test": "typings-checker --project tsconfig.json test/XfsMessage.ts test/XfsMessage.ts",
+    "gen-java.compile": "rimraf dist && tsc --project tsconfig.gen-java.json",
+    "gen-java": "node ./dist-java/GenerateJava.js",
+    "lint": "eslint ./**/*.ts",
+    "lint.fix": "eslint --fix ./**/*.ts",
+    "prepublishOnly": "npm run start",
+    "postpublish": "rimraf dist"
+  },
+  "keywords": [
+    "xfs4iot",
+    "Fujitsu",
+    "api"
+  ],
+  "author": "Roger De Moreta",
+  "license": "ISC",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "typescript": "4.5.5",
+    "eslint": "^8.9.0",
+    "prettier": "2.5.1",
+    "rimraf": "^3.0.2",
+    "typings-checker": "^2.0.0"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "fujitsu-xfs4iot-service-discovery",
+  "version": "0.0.2",
+  "description": "Fujitsu Xfs4Iot Service Discovery",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "http://10.142.76.119:7003/content/repositories/private-npm/"
+  },
+  "scripts": {
+    "start": "rimraf dist && tsc --project tsconfig.publish.json",
+    "test": "rimraf dist && tsc && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&& node ./dist/test/test.js",
+    "lint": "eslint ./**/*.ts",
+    "lint.fix": "eslint --fix ./**/*.ts",
+    "prepublishOnly": "npm run start"
+  },
+  "keywords": [
+    "xfs4iot",
+    "Fujitsu",
+    "service",
+    "publisher"
+  ],
+  "author": "Roger De Moreta",
+  "license": "ISC",
+  "dependencies": {
+    "fujitsu-xfs4iot-api": "0.0.1",
+    "pino": "7.1.0",
+    "pino-pretty": "7.6.1",
+    "ws": "^8.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/ws": "^8.2.2",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.9.0",
+    "prettier": "2.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "4.5.5",
+    "typings-checker": "^2.0.0"
+  }
+}

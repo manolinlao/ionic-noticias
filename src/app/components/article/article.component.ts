@@ -75,9 +75,11 @@ export class ArticleComponent implements OnInit {
 
   onShareArticle() {
     const { title, source, url } = this.article;
-
-    console.log('share article');
     this.socialSharing.share(title, source.name, null, url);
+
+    if (this.platform.is('cordova')) {
+      this.socialSharing.share(title, source.name, null, url);
+    }
   }
 
   onToggleFavorite() {

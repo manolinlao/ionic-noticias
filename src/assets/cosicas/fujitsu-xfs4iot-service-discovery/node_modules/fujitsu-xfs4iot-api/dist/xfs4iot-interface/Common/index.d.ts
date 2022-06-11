@@ -1,0 +1,37 @@
+import { XfsInterface } from '../Core';
+import { CommonCommands, CommonStatusCompleteMessages } from './commands';
+import { CommonUnsoliciteds } from './unsolicited';
+export * from './commands';
+export * from './unsolicited';
+export * from './AuxiliariesStatus';
+export * from './BarcodeReaderStatus';
+export * from './BiometricStatus';
+export * from './CameraStatus';
+export * from './CardReaderStatus';
+export * from './CashAcceptorStatus';
+export * from './CashDispenserStatus';
+export * from './CashManagementStatus';
+export * from './CommonAntiFraudModuleEnum';
+export * from './CommonDevicePositionEnum';
+export * from './CommonDeviceStatusEnum';
+export * from './CommonEndToEndSecurityEnum';
+export * from './CommonExchangeEnum';
+export * from './CommonLightStatus';
+export * from './CommonStatus';
+export * from './KeyboardStatus';
+export * from './KeyManagementStatus';
+export * from './SecurityModuleEnum';
+export * from './TextTerminalStatus';
+export * from './PositionStatusEnum';
+export * from './ShutterEnum';
+export * from './TransportStatusEnum';
+export * from './TransportEnum';
+export * from './PrinterStatus';
+export * from './LightsStatus';
+export * from './VendorModeStatus';
+export * from './VendorApplicationStatus';
+export interface CommonInterface extends XfsInterface {
+    commands: CommonCommands;
+    completionMessages: CommonStatusCompleteMessages;
+    unsoliciteds: CommonUnsoliciteds;
+}

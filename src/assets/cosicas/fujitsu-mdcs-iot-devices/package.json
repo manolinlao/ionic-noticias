@@ -1,0 +1,67 @@
+{
+  "name": "fujitsu-mdcs-iot-devices",
+  "version": "0.0.2",
+  "description": "Fujitsu MDCS IOT Devices",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "http://10.142.76.119:7003/content/repositories/private-npm/"
+  },
+  "scripts": {
+    "start": "rimraf dist && tsc --project tsconfig.publish.json",
+    "build": "rimraf dist-run && tsc --project tsconfig.run.json",
+    "postbuild": "copy \"./package-test.json\" \"./dist-run/package.json\" && cd dist-run && npm i --production",
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
+    "test1": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=debug&&node ./dist-test/test/test.js",
+    "test2": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&&node ./dist-test/test/loadBillsTest.js",
+    "test3": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&&node ./dist-test/test/dispenseAmountTest.js",
+    "test4": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&&node ./dist-test/test/dispenseDistributionTest.js",
+    "test5": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&&node ./dist-test/test/dispenseOptionsTest.js",
+    "test6": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&&node ./dist-test/test/dispenseFailedTest.js",
+    "test7": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&&node ./dist-test/test/forgetBillsTest.js",
+    "test8": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&&node ./dist-test/test/forgetBillsStressTest.js",
+    "test9": "rimraf dist-test && tsc --project tsconfig.test.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=trace&&node ./dist-test/test/retractTest.js",
+    "lint": "eslint ./**/*.ts",
+    "lint.fix": "eslint --fix ./**/*.ts",
+    "pkg": "npm run build && set NODE_TLS_REJECT_UNAUTHORIZED=0&& pkg dist-run/run/run.js -C --output mdcs-iot-devices.exe --targets node16-win-x64",
+    "run": "rimraf dist-run && tsc --project tsconfig.run.json && set PINO_PRETTY=1&& set PINO_LOG_LEVEL=debug&&node dist-run/run/run.js",
+    "prepublishOnly": "npm run start"
+  },
+  "keywords": [
+    "xfs4iot",
+    "Fujitsu",
+    "service",
+    "mdcs"
+  ],
+  "author": "Roger De Moreta",
+  "license": "ISC",
+  "dependencies": {
+    "fujitsu-xfs4iot-api": "0.0.2",
+    "fujitsu-xfs4iot-service-discovery": "0.0.2",
+    "pino": "7.1.0",
+    "pino-pretty": "7.6.1",
+    "properties-reader": "^2.2.0",
+    "ws": "^8.2.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^16.11.6",
+    "@types/properties-reader": "^2.1.1",
+    "@types/ws": "^8.2.2",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "chai": "^4.3.6",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.9.0",
+    "mocha": "^9.2.2",
+    "nexe": "^4.0.0-beta.19",
+    "nyc": "^15.1.0",
+    "pkg": "^5.5.2",
+    "prettier": "2.5.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.4.4",
+    "typings-checker": "^2.0.0"
+  }
+}

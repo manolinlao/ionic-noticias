@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+        "outDir": "dist-run",
+        "sourceMap": true,
+        "moduleResolution": "node",                               
+        "module": "commonjs",
+        "target": "es2017",
+
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitOverride": true,
+        "noPropertyAccessFromIndexSignature": false,
+        "declaration": true,
+
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowUnusedLabels": true,
+        "allowUnreachableCode": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "buildOptions": {
+        "build": true
+    },
+    "include": [
+        "run/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
